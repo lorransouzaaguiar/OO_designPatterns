@@ -2,27 +2,44 @@ package Strategy;
 
 public class Dificil extends JogoStrategy {
 
-    Dificil(Heroi heroi, Vilao vilao, int coeficienteDeBatalha) {
-        super(heroi, vilao, coeficienteDeBatalha);
-        // TODO Auto-generated constructor stub
+    public Dificil(Heroi heroi, Vilao vilao) {
+        super(heroi, vilao, 3);
     }
 
     @Override
     public void jogar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'jogar'");
+        System.out.println("Jogando no Nível difícil");
+        while (true) {
+            System.out.println("\n");
+            this.exibirRodada(this.rodadas);
+            this.vilaoAtaca();
+            this.heroiAtaca();
+
+            if (this.jogoFinalizado()) {
+                this.statusDoJogo();
+                System.out.println("\n");
+                break;
+            }
+
+            this.rodadas += 1;
+        }
+
     }
 
     @Override
     protected void vilaoAtaca() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'vilaoAtaca'");
+        System.out.println("Vilao ataca");
+        int coeficienteDefesa = this.heroi.getDefesa() / this.coeficienteDeBatalha;
+        int vidaAtual = this.heroi.getVidaAtual() + coeficienteDefesa
+                - (this.vilao.getDano() * this.coeficienteDeBatalha);
+        this.heroi.setVidaAtual(vidaAtual);
     }
 
     @Override
     protected void heroiAtaca() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'heroiAtaca'");
+        System.out.println("Herói ataca");
+        int vidaAtual = this.vilao.getVidaAtual() - (this.heroi.getDano() * this.coeficienteDeBatalha);
+        this.vilao.setVidaAtual(vidaAtual);
     }
 
 }

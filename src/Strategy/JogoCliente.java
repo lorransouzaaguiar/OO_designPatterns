@@ -4,9 +4,7 @@ public class JogoCliente {
 
     private JogoStrategy strategy;
 
-    public JogoCliente() {
-        Heroi heroi = new Heroi(100, 90, 10, "heroi");
-        Vilao vilao = new Vilao(90, 75, 5, "Vilão");
+    public JogoCliente(Heroi heroi, Vilao vilao) {
         this.strategy = new Facil(heroi, vilao);
     }
 

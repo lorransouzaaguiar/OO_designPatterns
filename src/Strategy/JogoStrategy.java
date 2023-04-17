@@ -20,11 +20,6 @@ public abstract class JogoStrategy {
 
     protected boolean jogoFinalizado() {
         if (this.vilao.getVidaAtual() <= 0 || this.heroi.getVidaAtual() <= 0) {
-            if (this.heroi.getVidaAtual() <= 0) {
-                System.out.println(this.heroi.getNomeJogador() + " Perdeu");
-            } else {
-                System.out.println(this.vilao.getNomeJogador() + " Perdeu");
-            }
             return true;
         }
         return false;
@@ -44,7 +39,12 @@ public abstract class JogoStrategy {
     protected void statusDoJogo() {
         System.out.println("\n");
         System.out.println("Status do jogo");
-        this.exibeVidaDosJogadores();
+        if (this.heroi.getVidaAtual() <= 0) {
+            System.out.println(this.vilao.getNomeJogador() + " é o vencedor");
+        } else {
+            System.out.println(this.heroi.getNomeJogador() + " é o vencedor");
+        }
         System.out.println("Terminou em " + this.rodadas + " rodadas");
+
     }
 }
