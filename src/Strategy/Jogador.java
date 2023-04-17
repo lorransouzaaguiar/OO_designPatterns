@@ -17,6 +17,10 @@ public abstract class Jogador {
         return defesa;
     }
 
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
     public int getVidaAtual() {
         return vidaAtual;
     }
@@ -29,8 +33,16 @@ public abstract class Jogador {
         return dano;
     }
 
+    public void setDano(int dano) {
+        this.dano = dano;
+    }
+
     public String getNomeJogador() {
         return nomeJogador;
+    }
+
+    public void setNomeJogador(String nomeJogador) {
+        this.nomeJogador = nomeJogador;
     }
 
     public void exibirVida() {
