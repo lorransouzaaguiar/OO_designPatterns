@@ -26,12 +26,6 @@ public abstract class JogoStrategy {
         System.out.println("\n");
     }
 
-    protected void exibeVidaDosJogadores() {
-        System.out.println("Vida dos Jogadores");
-        this.heroi.exibirVida();
-        this.vilao.exibirVida();
-    }
-
     protected void statusDoJogo() {
         System.out.println("\n");
         System.out.println("Status do jogo");
