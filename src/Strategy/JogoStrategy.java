@@ -14,10 +14,6 @@ public abstract class JogoStrategy {
 
     public abstract void jogar();
 
-    protected abstract void vilaoAtaca();
-
-    protected abstract void heroiAtaca();
-
     protected boolean jogoFinalizado() {
         if (this.vilao.getVidaAtual() <= 0 || this.heroi.getVidaAtual() <= 0) {
             return true;
@@ -46,5 +42,21 @@ public abstract class JogoStrategy {
         }
         System.out.println("Terminou em " + this.rodadas + " rodadas");
 
+    }
+
+    protected void vilaoAtaca() {
+        System.out.println("Vilao ataca");
+        int coeficienteDefesa = this.heroi.getDefesa() / this.coeficienteDeBatalha;
+        int vidaAtual = this.heroi.getVidaAtual() + coeficienteDefesa
+                - (this.vilao.getDano() * this.coeficienteDeBatalha);
+        this.heroi.setVidaAtual(vidaAtual);
+    }
+
+    protected void heroiAtaca() {
+        System.out.println("Herói ataca");
+        int coeficienteDefesa = this.vilao.getDefesa() / this.coeficienteDeBatalha;
+        int vidaAtual = this.vilao.getVidaAtual() + coeficienteDefesa
+                - (this.heroi.getDano() * this.coeficienteDeBatalha);
+        this.vilao.setVidaAtual(vidaAtual);
     }
 }

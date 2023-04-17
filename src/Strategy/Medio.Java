@@ -3,7 +3,7 @@ package Strategy;
 public class Medio extends JogoStrategy {
 
     public Medio(Heroi heroi, Vilao vilao) {
-        super(heroi, vilao, 3);
+        super(heroi, vilao, 4);
     }
 
     @Override
@@ -26,24 +26,6 @@ public class Medio extends JogoStrategy {
             this.rodadas += 1;
         }
 
-    }
-
-    @Override
-    protected void vilaoAtaca() {
-        System.out.println("Vilao ataca");
-        int coeficienteDefesa = this.heroi.getDefesa() / this.coeficienteDeBatalha;
-        int vidaAtual = this.heroi.getVidaAtual() + coeficienteDefesa
-                - (this.vilao.getDano() * this.coeficienteDeBatalha);
-        this.heroi.setVidaAtual(vidaAtual);
-    }
-
-    @Override
-    protected void heroiAtaca() {
-        System.out.println("Herói ataca");
-        int coeficienteDefesa = this.vilao.getDefesa() / this.coeficienteDeBatalha;
-        int vidaAtual = this.vilao.getVidaAtual() + coeficienteDefesa
-                - (this.heroi.getDano() * this.coeficienteDeBatalha);
-        this.vilao.setVidaAtual(vidaAtual);
     }
 
 }

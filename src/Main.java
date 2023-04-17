@@ -21,7 +21,7 @@ public class Main {
         Heroi heroi = new Heroi(90, 70, 10, "Herói");
         Vilao vilao = new Vilao(90, 70, 5, "Vilao");
 
-        JogoCliente jogo = new JogoCliente(heroi, vilao);
+        JogoCliente jogo = new JogoCliente();
         jogo.jogar();
 
         jogo.resetarJogo(new Medio(heroi, vilao));
